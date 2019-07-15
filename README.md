@@ -20,7 +20,7 @@
 
 ## Base API URL
 
-**https://refugeestories-be.herokuapp.com/**
+**https://bw-refugee-stories.herokuapp.com/**
 
 ---
 
