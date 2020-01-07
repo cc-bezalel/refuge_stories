@@ -26,4 +26,11 @@ server.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
 
+server.use('*', (req, res) =>
+  res.status(404).json({
+    status: 404,
+    message: 'No endpoint matches that URL.'
+  })
+);
+
 module.exports = server;

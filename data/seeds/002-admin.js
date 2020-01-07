@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
     {
       role_id: 1,
       email:process.env.INITIAL_ADMIN_EMAIL,
-      password:hashSync(process.env.INITIAL_ADMIN_PASSWORD, 10)
+      password:hashSync(process.env.INITIAL_ADMIN_PASSWORD)
     }
   ]);
 };

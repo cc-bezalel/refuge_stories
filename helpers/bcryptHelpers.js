@@ -1,3 +1,3 @@
 const bcrypt = require('bcryptjs');
 
-exports.hashSync = async password => await bcrypt.hashSync(password, 10);
+exports.hashSync = password => bcrypt.hashSync(password, 10);
