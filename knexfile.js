@@ -5,40 +5,34 @@ pg.defaults.ssl = true
 
 module.exports = {
   development: {
-    client: "sqlite3",
-    connection: {
-      filename: "./data/stories_db.db3"
-    },
+    client: 'pg',
+    connection: process.env.DB_URL,
     useNullAsDefault: true,
+    pool: {
+      min: 1,
+      max: 2,
+    },
     migrations: {
-      directory: "./data/migrations"
+      directory: './data/migrations',
     },
     seeds: {
-      directory: "./data/seeds"
+      directory: './data/seeds',
     },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      }
-    }
   },
   testing: {
-    client: "sqlite3",
-    connection: {
-      filename: "./data/testing_db.db3"
-    },
+    client: 'pg',
+    connection: process.env.DB_URL,
     useNullAsDefault: true,
+    pool: {
+      min: 1,
+      max: 2,
+    },
     migrations: {
-      directory: "./data/migrations"
+      directory: './data/migrations',
     },
     seeds: {
-      directory: "./data/seeds/test_seeds"
+      directory: './data/seeds',
     },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      }
-    }
   },
   production: {
     client: "pg",
